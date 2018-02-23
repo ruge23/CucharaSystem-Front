@@ -1,0 +1,11 @@
+.root{
+    display: flex ;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.gripList{
+    width: 500;
+    height: 450;
+    overflow: auto;
+}
