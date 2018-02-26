@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
 import {Tabs, Tab} from 'material-ui/Tabs'
-import Menu from 'material-ui/svg-icons/navigation/menu'
+import Menu from './Menu'
+import Inventory from './Inventory';
+import MenuIcon from 'material-ui/svg-icons/navigation/menu'
 import Stock from 'material-ui/svg-icons/image/view-compact'
 import MapsPersonPin from 'material-ui/svg-icons/maps/person-pin'
 
 
-class TabsContent extends Component {
+export default class TabsContent extends Component {
     constructor(props){
         super(props);
         this.state = {
-            value: 'a'
+            value: 'a',
         }
     }
 
@@ -26,15 +28,19 @@ class TabsContent extends Component {
                     onChange = {this.handleChange}
                 >
                     <Tab
-                        icon={<Menu />}
+                        icon={<MenuIcon />}
                         label="Menu"
-                        value='a'
-                    />
+                        value="a"
+                    >
+                        <Menu />
+                    </ Tab>
                     <Tab
                         icon ={<Stock />}
                         label="INVENTARIO"
                         value='b'
-                    />
+                    >
+                        <Inventory />
+                    </Tab>
                     <Tab
                         icon ={<MapsPersonPin />}
                         label="MOZOS"
@@ -44,4 +50,3 @@ class TabsContent extends Component {
         )    
     }
 }
-export default TabsContent;
