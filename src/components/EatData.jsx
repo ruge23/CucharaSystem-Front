@@ -9,15 +9,15 @@ export default class EatData extends Component {
             <Table>
                 <TableHeader>
                     <TableRow>
-                        <TableHeaderColumn>Nombre</ TableHeaderColumn>
-                        <TableHeaderColumn>Precio</ TableHeaderColumn>
+                        <TableHeaderColumn style={{textAlign: 'center'}}>Nombre</ TableHeaderColumn>
+                        <TableHeaderColumn style={{textAlign: 'center'}}>Precio</ TableHeaderColumn>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
                     {comidas.map((eat, index) => (
                         <TableRow key={index}>
-                            <TableRowColumn>{eat.title}</TableRowColumn>
-                            <TableRowColumn>{eat.price}</TableRowColumn>
+                            <TableRowColumn style={{textAlign: 'center'}}>{eat.title}</TableRowColumn>
+                            <TableRowColumn style={{textAlign: 'center'}}>{eat.price}</TableRowColumn>
                         </TableRow>
                     ))}
                 </TableBody>

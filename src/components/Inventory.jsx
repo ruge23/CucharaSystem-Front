@@ -7,6 +7,8 @@ import {
     TableRow,
     TableRowColumn,
   } from 'material-ui/Table'
+import AddIcon from 'material-ui/svg-icons/content/add-box'
+import CreateIcon from 'material-ui/svg-icons/content/create'
 import inventoryData from '../data/inventoryData'
 
 
@@ -18,10 +20,11 @@ export default class Inventory extends React.Component{
         stripedRows: false,
         showRowHover: false,
         selectable: true,
+        selected: false,
         multiSelectable: false,
         enableSelectAll: false,
-        deselectOnClickaway: true,
-        showCheckboxes: true,
+        deselectOnClickaway: false,
+        showCheckboxes: false,
         height: '300px',
     }
 
@@ -53,14 +56,14 @@ export default class Inventory extends React.Component{
                     enableSelectAll={this.state.enableSelectAll}
                  >
                   <TableRow>
-                    <TableHeaderColumn colSpan ="3" tooltip="Super Header" style={{textAlign: 'center'}}>
+                    <TableHeaderColumn colSpan ="3" style={{textAlign: 'center'}}>
                         Ingedientes
                     </ TableHeaderColumn>
                   </TableRow>
                   <TableRow>
-                    <TableHeaderColumn tooltip="The ID">ID</ TableHeaderColumn>
-                    <TableHeaderColumn tooltip="The Name">Ingrediente</ TableHeaderColumn>
-                    <TableHeaderColumn tooltip="The Status">Cantidad</ TableHeaderColumn>
+                    <TableHeaderColumn style={{textAlign: 'center'}}>Nombre</ TableHeaderColumn>
+                    <TableHeaderColumn style={{textAlign: 'center'}}>Cantidad</ TableHeaderColumn>
+                    <TableHeaderColumn tooltip="Agregar Ingrediente" style={{textAlign: 'center'}}><AddIcon /></ TableHeaderColumn>
                   </TableRow>
                 </TableHeader>
                 <TableBody
@@ -71,9 +74,9 @@ export default class Inventory extends React.Component{
                 >
                     {inventoryData.map( (row, index) => (
                         <TableRow key={index}>
-                            <TableRowColumn>{index}</ TableRowColumn>
-                            <TableRowColumn>{row.name}</ TableRowColumn>
-                            <TableRowColumn>{row.status}</ TableRowColumn>
+                            <TableRowColumn style={{textAlign: 'center'}}>{row.name}</ TableRowColumn>
+                            <TableRowColumn style={{textAlign: 'center'}}>{row.status}</ TableRowColumn>
+                            <TableRowColumn tooltip="Editar Ingrediente" style={{textAlign: 'center'}}><CreateIcon /></ TableRowColumn>
                         </ TableRow>
                     ))}
                 </TableBody>
