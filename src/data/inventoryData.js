@@ -1,31 +1,31 @@
 const tableData = [
     {
-      name: 'John Smith',
-      status: 'Employed',
+      name: 'Harina',
+      status: '100',
     },
     {
-      name: 'Randal White',
-      status: 'Unemployed',
+      name: 'Huevo',
+      status: '200',
     },
     {
-      name: 'Stephanie Sanders',
-      status: 'Employed',
+      name: 'Jamon',
+      status: '300',
     },
     {
-      name: 'Steve Brown',
-      status: 'Employed',
+      name: 'Queso',
+      status: '400',
     },
     {
-      name: 'Joyce Whitten',
-      status: 'Employed',
+      name: 'Pan',
+      status: '100',
     },
     {
-      name: 'Samuel Roberts',
-      status: 'Employed',
+      name: 'Carne',
+      status: '600',
     },
     {
-      name: 'Adam Moore',
-      status: 'Employed',
+      name: 'Verduras',
+      status: '600',
     },
   ];
 

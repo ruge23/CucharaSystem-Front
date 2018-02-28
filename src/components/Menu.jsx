@@ -1,4 +1,5 @@
 import React from 'react'
+import TabMenu from './TabMenu'
 import {GridList, GridTile} from 'material-ui/GridList'
 import Subheader from 'material-ui/Subheader'
 import listmenu from '../data/listmenu';
@@ -24,16 +25,8 @@ const GridMenu = (props) =>{
                 cellHeight = {180}
                 style={styles.gridList}
             >
-            <Subheader> Comidas </ Subheader>
-            {listmenu.map((data) => (
-                <GridTile
-                    key={data.id}
-                    title={data.title}
-                    subtitle={<span><b>{data.price}</b></span>}
-                >
-                <img src={data.src} />
-                </GridTile>
-            ))}
+            <Subheader> <TabMenu /></ Subheader>
+            
         </GridList>
         </div>
     )

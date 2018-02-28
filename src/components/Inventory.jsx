@@ -11,6 +11,7 @@ import inventoryData from '../data/inventoryData'
 
 
 export default class Inventory extends React.Component{
+    
     state = {
         fixedHeader: true,
         fixedFooter: true,

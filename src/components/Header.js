@@ -43,7 +43,7 @@ export default class TabsContent extends Component {
                     </Tab>
                     <Tab
                         icon ={<MapsPersonPin />}
-                        label="MOZOS"
+                        label="CAJA"
                         value='c'
                     />
                 </Tabs> 
