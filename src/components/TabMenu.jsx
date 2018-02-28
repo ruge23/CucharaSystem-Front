@@ -10,21 +10,21 @@ export default class TabMenu extends Component {
     render(){
         return(
             <Tabs>
-            <Tab
-                icon={<EatIcon />}
-                label="Comidas"
-                value="a"
-            >
-                <EatData />
-            </ Tab>
-            <Tab
-                icon={<DrinkIcon />}                
-                label="Bebidas"
-                value='b'
-            >
-                <DrinkData />
-            </Tab>
-        </Tabs> 
+                <Tab
+                    icon={<EatIcon />}
+                    label="Comidas"
+                    value="a"
+                >
+                    <EatData />
+                </ Tab>
+                <Tab
+                    icon={<DrinkIcon />}                
+                    label="Bebidas"
+                    value='b'
+                >
+                    <DrinkData />
+                </Tab>
+            </Tabs> 
         )
     }
 }

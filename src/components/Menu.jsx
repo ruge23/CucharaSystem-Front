@@ -9,7 +9,7 @@ const styles = {
       display: 'flex',
       flexWrap: 'wrap',
       justifyContent: 'space-around',
-      margin : '20px auto 0',
+      margin : '50px auto 0',
     },
     gridList: {
       width: 500,

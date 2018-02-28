@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {Tabs, Tab} from 'material-ui/Tabs'
 import Menu from './Menu'
 import Inventory from './Inventory';
+import TabMozos from './TabMozos'
 import MenuIcon from 'material-ui/svg-icons/navigation/menu'
 import Stock from 'material-ui/svg-icons/image/view-compact'
 import MapsPersonPin from 'material-ui/svg-icons/maps/person-pin'
@@ -45,7 +46,9 @@ export default class TabsContent extends Component {
                         icon ={<MapsPersonPin />}
                         label="CAJA"
                         value='c'
-                    />
+                    >
+                        <TabMozos />
+                    </Tab>
                 </Tabs> 
         )    
     }

@@ -18,13 +18,16 @@ export default class EatData extends Component {
         deselectOnClickaway: false,
         showCheckboxes: false,
         selectedIndex: 0,
+        height: '300px',
     }
 
     select = (index) => this.setState({selectedIndex: index});
 
     render(){
         return(
-            <Table>
+            <Table
+                height={this.state.height}
+            >
                 <TableHeader
                     displaySelectAll={this.state.showCheckboxes}
                     adjustForCheckbox={this.state.showCheckboxes}
