@@ -1,8 +1,8 @@
 import React from 'react'
 import TabMenu from './TabMenu'
-import {GridList, GridTile} from 'material-ui/GridList'
+import {GridList} from 'material-ui/GridList'
 import Subheader from 'material-ui/Subheader'
-import listmenu from '../data/listmenu';
+
 
 const styles = {
     root: {

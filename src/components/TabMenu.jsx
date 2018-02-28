@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import {Tabs, Tab} from 'material-ui/Tabs'
+import EatData from './EatData'
+import DrinkData from './DrinkData'
 import EatIcon from 'material-ui/svg-icons/maps/restaurant'
 import DrinkIcon from 'material-ui/svg-icons/maps/local-bar'
-import MenuIcon from 'material-ui/svg-icons/navigation/menu'
+
 
 export default class TabMenu extends Component {
     render(){
@@ -13,14 +15,14 @@ export default class TabMenu extends Component {
                 label="Comidas"
                 value="a"
             >
-
+                <EatData />
             </ Tab>
             <Tab
                 icon={<DrinkIcon />}                
                 label="Bebidas"
                 value='b'
             >
-            
+                <DrinkData />
             </Tab>
         </Tabs> 
         )
