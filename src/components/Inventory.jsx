@@ -7,8 +7,10 @@ import {
     TableRow,
     TableRowColumn,
   } from 'material-ui/Table'
+import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation'
 import AddIcon from 'material-ui/svg-icons/content/add-box'
-import CreateIcon from 'material-ui/svg-icons/content/create'
+import EditeIcon from 'material-ui/svg-icons/content/create'
+import DeleteIcon from 'material-ui/svg-icons/navigation/cancel'
 import inventoryData from '../data/inventoryData'
 
 
@@ -25,9 +27,12 @@ export default class Inventory extends React.Component{
         enableSelectAll: false,
         deselectOnClickaway: false,
         showCheckboxes: false,
+        selectedIndex: 0,
         height: '300px',
     }
-
+    
+    select = (index) => this.setState({selectedIndex: index});
+    
     handleToggle = (event, toggled) =>{
         this.setState({
             [event.target.name] : toggled,
@@ -63,7 +68,15 @@ export default class Inventory extends React.Component{
                   <TableRow>
                     <TableHeaderColumn style={{textAlign: 'center'}}>Nombre</ TableHeaderColumn>
                     <TableHeaderColumn style={{textAlign: 'center'}}>Cantidad</ TableHeaderColumn>
-                    <TableHeaderColumn tooltip="Agregar Ingrediente" style={{textAlign: 'center'}}><AddIcon /></ TableHeaderColumn>
+                    <TableHeaderColumn> 
+                            <BottomNavigation>
+                                <BottomNavigationItem
+                                    label="Agregar Ingerdiente"
+                                    icon={<AddIcon />}
+                                    onClick={() => this.select(0)}
+                                />
+                            </BottomNavigation>
+                    </ TableHeaderColumn>
                   </TableRow>
                 </TableHeader>
                 <TableBody
@@ -76,7 +89,20 @@ export default class Inventory extends React.Component{
                         <TableRow key={index}>
                             <TableRowColumn style={{textAlign: 'center'}}>{row.name}</ TableRowColumn>
                             <TableRowColumn style={{textAlign: 'center'}}>{row.status}</ TableRowColumn>
-                            <TableRowColumn tooltip="Editar Ingrediente" style={{textAlign: 'center'}}><CreateIcon /></ TableRowColumn>
+                            <TableHeaderColumn>
+                                    <BottomNavigation selectedIndex={this.state.selectedIndex}>
+                                        <BottomNavigationItem
+                                            label="Editar"
+                                            icon={<EditeIcon />}
+                                            onClick={() => this.select(0)}
+                                        />
+                                         <BottomNavigationItem
+                                            label="Borrar"
+                                            icon={<DeleteIcon />}
+                                            onClick={() => this.select(1)}
+                                        />
+                                    </BottomNavigation>
+                            </ TableHeaderColumn>
                         </ TableRow>
                     ))}
                 </TableBody>
