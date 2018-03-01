@@ -6,6 +6,13 @@ import RaisedButton from 'material-ui/RaisedButton'
 import SendIcon from 'material-ui/svg-icons/content/send'
 
 const styles={
+    form :{
+        margin: '20px',
+        backgroundColor:'rgb(48,48,48)'
+    },
+    div:{
+        marginLeft: '30px',
+    },
     button: {
         margin: 12,
     },
@@ -20,18 +27,14 @@ export default class AddMozo extends Component{
     handleChange = (event, index, value) => this.setState({value});
     render(){
         return(
-            <form>
-                <div>   
+            <form style={styles.form}>
+                <div style={styles.div}>   
                 <TextField
-                        hintText="Nombre"
-                        floatingLabelText="Apellido"
-                        fullWidth={true}
+                        floatingLabelText="Nombre"
                     />
                     <br />
                     <TextField
-                        hintText="Apellido"
                         floatingLabelText="Apellido"
-                        fullWidth={true}
                     />
                     <br />
                     <SelectField
