@@ -3,7 +3,8 @@ import {Table, TableRow, TableHeaderColumn, TableHeader, TableBody, TableRowColu
 import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation'
 import AddIcon from 'material-ui/svg-icons/content/add-box'
 import EditeIcon from 'material-ui/svg-icons/content/create'
-import DeleteIcon from 'material-ui/svg-icons/navigation/cancel'
+import IconButton from 'material-ui/IconButton'
+import IconDelete from 'material-ui/svg-icons/action/delete'
 import bebidas from '../data/bebidas'
 
 export default class EatData extends Component {
@@ -11,14 +12,13 @@ export default class EatData extends Component {
     state = {
         stripedRows: false,
         showRowHover: false,
-        selectable: true,
+        selectable: false,
         selected: false,
         multiSelectable: false,
         enableSelectAll: false,
         deselectOnClickaway: false,
         showCheckboxes: false,
         selectedIndex: 0,
-        height: '300px',
     }
 
     select = (index) => this.setState({selectedIndex: index});
@@ -54,22 +54,25 @@ export default class EatData extends Component {
                     stripedRows={this.state.stripedRows}
                 >
                     {bebidas.map((drink, index) => (
-                        <TableRow key={index}>
+                        <TableRow 
+                            key={index}
+                            selectable={this.state.selectable}
+                        >
                             <TableRowColumn style={{textAlign: 'center'}}>{drink.title}</TableRowColumn>
                             <TableRowColumn style={{textAlign: 'center'}}>{drink.price}</TableRowColumn>
-                            <TableHeaderColumn> 
-                                <BottomNavigation selectedIndex={this.state.selectedIndex}>
-                                    <BottomNavigationItem
-                                        label="Editar"
-                                        icon={<EditeIcon />}
-                                        onClick={() => this.select(0)}
-                                    />
-                                    <BottomNavigationItem
-                                        label="Borrar"
-                                        icon={<DeleteIcon />}
-                                        onClick={() => this.select(1)}
-                                    />
-                                </BottomNavigation>
+                            <TableHeaderColumn style={{textAlign: 'center'}}> 
+                                <div>
+                                    <IconButton 
+                                        tooltip="Editar"
+                                    >
+                                        <EditeIcon />
+                                    </IconButton>
+                                    <IconButton 
+                                        tooltip="Eliminar"
+                                    >
+                                        <IconDelete />
+                                    </IconButton>
+                                </div>
                             </ TableHeaderColumn>
                         </TableRow>
                     ))}

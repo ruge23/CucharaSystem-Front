@@ -5,7 +5,7 @@ import Inventory from './Inventory';
 import TabMozos from './TabMozos'
 import MenuIcon from 'material-ui/svg-icons/navigation/menu'
 import Stock from 'material-ui/svg-icons/image/view-compact'
-import MapsPersonPin from 'material-ui/svg-icons/maps/person-pin'
+import IconCaja from 'material-ui/svg-icons/action/account-balance'
 
 
 export default class TabsContent extends Component {
@@ -43,7 +43,7 @@ export default class TabsContent extends Component {
                         <Inventory />
                     </Tab>
                     <Tab
-                        icon ={<MapsPersonPin />}
+                        icon ={<IconCaja />}
                         label="CAJA"
                         value='c'
                     >

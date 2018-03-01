@@ -8,9 +8,10 @@ import {
     TableRowColumn,
   } from 'material-ui/Table'
 import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation'
+import IconButton from 'material-ui/IconButton'
 import AddIcon from 'material-ui/svg-icons/content/add-box'
 import EditeIcon from 'material-ui/svg-icons/content/create'
-import DeleteIcon from 'material-ui/svg-icons/navigation/cancel'
+import IconDelete from 'material-ui/svg-icons/action/delete'
 import inventoryData from '../data/inventoryData'
 
 
@@ -21,7 +22,7 @@ export default class Inventory extends React.Component{
         fixedFooter: true,
         stripedRows: false,
         showRowHover: false,
-        selectable: true,
+        selectable: false,
         selected: false,
         multiSelectable: false,
         enableSelectAll: false,
@@ -47,7 +48,7 @@ export default class Inventory extends React.Component{
 
     render(){
         return (
-            <div>
+            <div style={{margin:'20px'}}>
                 <Table
                     height={this.state.height}
                     fixedHeader={this.state.fixedHeader}
@@ -86,22 +87,25 @@ export default class Inventory extends React.Component{
                     stripedRows={this.state.stripedRows}
                 >
                     {inventoryData.map( (row, index) => (
-                        <TableRow key={index}>
+                        <TableRow 
+                            key={index}
+                            selectable={this.state.selectable}
+                        >
                             <TableRowColumn style={{textAlign: 'center'}}>{row.name}</ TableRowColumn>
                             <TableRowColumn style={{textAlign: 'center'}}>{row.status}</ TableRowColumn>
-                            <TableHeaderColumn>
-                                    <BottomNavigation selectedIndex={this.state.selectedIndex}>
-                                        <BottomNavigationItem
-                                            label="Editar"
-                                            icon={<EditeIcon />}
-                                            onClick={() => this.select(0)}
-                                        />
-                                         <BottomNavigationItem
-                                            label="Borrar"
-                                            icon={<DeleteIcon />}
-                                            onClick={() => this.select(1)}
-                                        />
-                                    </BottomNavigation>
+                            <TableHeaderColumn style={{textAlign: 'center'}}> 
+                                <div>
+                                    <IconButton 
+                                        tooltip="Editar"
+                                    >
+                                        <EditeIcon />
+                                    </IconButton>
+                                    <IconButton 
+                                        tooltip="Eliminar"
+                                    >
+                                        <IconDelete />
+                                    </IconButton>
+                                </div>
                             </ TableHeaderColumn>
                         </ TableRow>
                     ))}
