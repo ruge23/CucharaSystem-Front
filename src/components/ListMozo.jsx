@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {List, ListItem} from 'material-ui/List'
 import Divider from 'material-ui/Divider'
-import {grey400} from 'material-ui/styles/colors';
+import {grey400, darkBlack} from 'material-ui/styles/colors';
 import Subheader from 'material-ui/Subheader'
 import Avatar from 'material-ui/Avatar'
 import IconButton from 'material-ui/IconButton'
@@ -31,10 +31,10 @@ const rightIconMenu = (
 export default class ListMozos extends Component {
     render(){
         return(
-            <List>
+            <List color={darkBlack}>
                 <Subheader>Mozos</Subheader>
                 {mozos.map((mozo, index) => ( 
-                    <div>
+                    <div key={index}>
                         <ListItem
                             leftAvatar={<Avatar src={mozo.avatarsrc} />}
                             rightIconButton={rightIconMenu}

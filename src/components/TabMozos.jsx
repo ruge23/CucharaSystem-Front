@@ -3,9 +3,10 @@ import {Tabs, Tab} from 'material-ui/Tabs'
 import {GridList} from 'material-ui/GridList'
 import Subheader from 'material-ui/Subheader'
 import MozoIcon from 'material-ui/svg-icons/social/person'
-import AddMozo from 'material-ui/svg-icons/social/person-add'
+import AddMozoIcon from 'material-ui/svg-icons/social/person-add'
 import PayIcon from 'material-ui/svg-icons/editor/attach-money'
 import ListMozos from './ListMozo'
+import AddMozo from './AddMozo'
 
 const styles = {
     root: {
@@ -36,10 +37,11 @@ export default class TabMozos extends Component{
                                 <ListMozos />
                             </ Tab>
                             <Tab
-                                icon={<AddMozo />}                
+                                icon={<AddMozoIcon />}                
                                 label="Agregar"
                                 value='b'
                             >
+                                <AddMozo />
                             </Tab>
                             <Tab
                                 icon={<PayIcon />}                
