@@ -17,12 +17,17 @@ import tableData from '../data/inventoryData'
       return name.name
   })
 
+  const menuProps = {
+    desktop: true,
+    disableAutoFocus: true,
+  };
+
 export default class AddIngredientsForFood extends Component{
     constructor(props) {
         super(props);
         this.state = {
             value:0,
-        }
+            searchText: '',        }
     }
     
     handleChange = (e, i, value) =>{
@@ -30,6 +35,19 @@ export default class AddIngredientsForFood extends Component{
             value
         })
     }
+
+    handleUpdateInput = (searchText) =>{
+        this.setState({
+            searchText: searchText,
+        })
+    }
+
+    handleNewRequest = () => {
+        this.setState({
+            searchText: '',
+        })
+    }
+
     render(){
         return (
             <Paper zDepth={5} style={style}>
@@ -37,9 +55,13 @@ export default class AddIngredientsForFood extends Component{
                 <ToolbarGroup>
                         <AutoComplete
                             hintText="Ingredientes"
-                            filter={AutoComplete.noFilter}
-                            openOnFocus={true}
+                            searchText={this.state.searchText}
+                            onUpdateInput={this.handleUpdateInput}
+                            onNewRequest={this.handleNewRequest}
                             dataSource={nameIngredients}
+                            filter={(searchText, key) => (key.indexOf(searchText) !== -1)}
+                            openOnFocus={true}
+                            menuProps={menuProps}
                         />
                 </ToolbarGroup>
                 <ToolbarGroup>
