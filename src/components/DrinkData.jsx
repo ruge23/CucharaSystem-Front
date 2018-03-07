@@ -19,9 +19,8 @@ export default class EatData extends Component {
         deselectOnClickaway: false,
         showCheckboxes: false,
         selectedIndex: 0,
+        height: '300px',
     }
-
-    select = (index) => this.setState({selectedIndex: index});
 
     render(){
         return(
@@ -41,7 +40,6 @@ export default class EatData extends Component {
                                 <BottomNavigationItem
                                     label="Agregar"
                                     icon={<AddIcon />}
-                                    onClick={() => this.select(0)}
                                 />
                             </BottomNavigation>
                     </ TableHeaderColumn>

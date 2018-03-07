@@ -1,19 +1,19 @@
 import React from 'react';
 import {render} from 'react-dom'
-import { Router, Route, hashHistory, IndexRedirect } from 'react-router'
+import { Router, Route, browserHistory, IndexRedirect } from 'react-router'
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import App from './App';
-import GridMenu from '../src/components/Menu'
+import App from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
+import AddFoodMenu from './components/AddFoodMenu';
 
 const router = (
     <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-        <Router history={hashHistory}>
+        <Router history={browserHistory}>
             <Route path='/'>
                 <Route path='/list' component={ App }></Route>
-                <Route path='/gridmenu' component={ GridMenu }></Route>
+                <Route path='/addFoodMenu' component={ AddFoodMenu }></Route>
                 <IndexRedirect to = '/list' />
             </Route>
         </Router>

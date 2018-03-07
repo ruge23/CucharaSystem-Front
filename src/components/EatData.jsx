@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
+import { Link } from 'react-router';
 import {Table, TableRow, TableHeaderColumn, TableHeader, TableBody, TableRowColumn} from 'material-ui/Table'
-import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
 import IconButton from 'material-ui/IconButton'
 import IconDelete from 'material-ui/svg-icons/action/delete'
 import AddIcon from 'material-ui/svg-icons/content/add-box'
@@ -22,8 +22,6 @@ export default class EatData extends Component {
         selectedIndex: 0,
         height: '300px',
     }
-    
-    select = (index) => this.setState({selectedIndex: index});
 
     render(){
         return(
@@ -38,14 +36,14 @@ export default class EatData extends Component {
                     <TableRow>
                         <TableHeaderColumn style={{textAlign: 'center'}}>Nombre</ TableHeaderColumn>
                         <TableHeaderColumn style={{textAlign: 'center'}}>Precio</ TableHeaderColumn>
-                        <TableHeaderColumn> 
-                            <BottomNavigation>
-                                <BottomNavigationItem
-                                    label="Agregar"
-                                    icon={<AddIcon />}
-                                    onClick={() => this.select(0)}
-                                />
-                            </BottomNavigation>
+                        <TableHeaderColumn style={{textAlign: 'center'}}> 
+                            <Link to = '/addFoodMenu'>
+                                <IconButton 
+                                    tooltip="Agregar"
+                                >
+                                    <AddIcon />
+                                </IconButton>
+                            </Link>
                         </ TableHeaderColumn>
                     </TableRow>
                 </TableHeader>
