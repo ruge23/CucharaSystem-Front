@@ -5,29 +5,17 @@ import AutoComplete from 'material-ui/AutoComplete'
 import TextField from 'material-ui/TextField'
 import DropDownMenu from 'material-ui/DropDownMenu'
 import MenuItem from 'material-ui/MenuItem'
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
-
-//traer data de los ingredientees ya creados
-const colors = [
-    'Red',
-    'Orange',
-    'Yellow',
-    'Green',
-    'Blue',
-    'Purple',
-    'Black',
-    'White',
-  ];
- 
-  const menuProps = {
-    desktop: true,
-    disableAutoFocus: true,
-  };
+import FloatingActionButton from 'material-ui/FloatingActionButton'
+import ContentAdd from 'material-ui/svg-icons/content/add'
+import tableData from '../data/inventoryData'
 
   const style = {
       margin: 12,
   }
+
+  const nameIngredients = tableData.map((name) => {
+      return name.name
+  })
 
 export default class AddIngredientsForFood extends Component{
     constructor(props) {
@@ -47,15 +35,17 @@ export default class AddIngredientsForFood extends Component{
             <Paper zDepth={5} style={style}>
                 <Toolbar style={style}>
                 <ToolbarGroup>
-                    <AutoComplete
-                        hintText="Ingrediente"
-                        dataSource={colors}
-                        menuProps={menuProps}
-                    />
+                        <AutoComplete
+                            hintText="Ingredientes"
+                            filter={AutoComplete.noFilter}
+                            openOnFocus={true}
+                            dataSource={nameIngredients}
+                        />
                 </ToolbarGroup>
                 <ToolbarGroup>
                     <TextField
                         hintText="Cantidad"
+                        type="number"
                     />
                 </ToolbarGroup>
                 <ToolbarGroup firstChild={true}>
